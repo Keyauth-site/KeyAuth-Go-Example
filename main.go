@@ -1,7 +1,7 @@
 package main
 
 import (
-	KeyAuthApp "KeyAuth/KeyAuth"
+	EpicAuthApp "EpicAuth/EpicAuth"
 	"fmt"
 	"os"
 	"time"
@@ -16,8 +16,8 @@ func Input(message string) string {
 }
 
 func main() {
-	KeyAuthApp.Api(
-		"KeyAuth",    // -- Application Name
+	EpicAuthApp.Api(
+		"EpicAuth",    // -- Application Name
 		"mpgOizljNW", // -- Owner ID
 		"1.1",        // -- Application Version
 		"",           // -- Token Path (PUT NULL OR LEAVE BLANK IF YOU DON'T WANT TO USE TOKEN SYSTEM)
@@ -34,22 +34,22 @@ func main() {
 		username := Input("Input username: ")
 		password := Input("Input password: ")
 
-		KeyAuthApp.Login(username, password)
+		EpicAuthApp.Login(username, password)
 	} else if ans == "2" {
 		username := Input("Input username: ")
 		password := Input("Input password: ")
 		license := Input("Input license: ")
 
-		KeyAuthApp.Register(username, password, license)
+		EpicAuthApp.Register(username, password, license)
 	} else if ans == "3" {
 		username := Input("Input username: ")
 		license := Input("Input license: ")
 
-		KeyAuthApp.Upgrade(username, license)
+		EpicAuthApp.Upgrade(username, license)
 	} else if ans == "4" {
 		license := Input("Input license: ")
 
-		KeyAuthApp.License(license)
+		EpicAuthApp.License(license)
 	} else {
 		fmt.Println("Invalid option")
 		time.Sleep(2 * time.Second)
@@ -57,12 +57,12 @@ func main() {
 	}
 
 	fmt.Println("\nUser Data:")
-	fmt.Println("   Username: ", KeyAuthApp.Username)
-	fmt.Println("   IP Address: ", KeyAuthApp.IP)
-	fmt.Println("   HWID: ", KeyAuthApp.HWID)
-	fmt.Println("   Created At: ", KeyAuthApp.CreatedDate)
-	fmt.Println("   Last Login At: ", KeyAuthApp.LastLogin)
-	fmt.Println("   Subscription: ", KeyAuthApp.Subscription)
+	fmt.Println("   Username: ", EpicAuthApp.Username)
+	fmt.Println("   IP Address: ", EpicAuthApp.IP)
+	fmt.Println("   HWID: ", EpicAuthApp.HWID)
+	fmt.Println("   Created At: ", EpicAuthApp.CreatedDate)
+	fmt.Println("   Last Login At: ", EpicAuthApp.LastLogin)
+	fmt.Println("   Subscription: ", EpicAuthApp.Subscription)
 
 	fmt.Println("\nExiting application in 10 seconds...")
 	time.Sleep(10 * time.Second)

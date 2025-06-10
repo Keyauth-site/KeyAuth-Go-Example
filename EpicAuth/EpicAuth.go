@@ -1,4 +1,4 @@
-package keyauth
+package EpicAuth
 
 import (
 	"bytes"
@@ -23,7 +23,7 @@ import (
 )
 
 var (
-	APIUrl           string = "https://keyauth.site/api/1.3/"
+	APIUrl           string = "https://EpicAuth.site/api/1.3/"
 	NumUsers         string
 	NumOnlineUsers   string
 	NumKeys          string
@@ -93,7 +93,7 @@ func Init() {
 
 	response := doRequest(postData)
 
-	if response == "KeyAuth_Invalid" {
+	if response == "EpicAuth_Invalid" {
 		fmt.Println("The application does not exist.")
 		time.Sleep(3 * time.Second)
 		os.Exit(1)
@@ -355,7 +355,7 @@ func GetVar(varName string) string {
 		return jsonResponse["response"].(string)
 	} else {
 		fmt.Println("NOTE: This is commonly misunderstood. This is for user variables, not the normal variables.")
-		fmt.Println("Use KeyAuthApp.var(\"%s\") for normal variables." + varName)
+		fmt.Println("Use EpicAuthApp.var(\"%s\") for normal variables." + varName)
 		fmt.Println(jsonResponse["message"].(string))
 		time.Sleep(3 * time.Second)
 		os.Exit(1)
@@ -784,7 +784,7 @@ func doRequest(postData map[string]string) string {
 	}
 
 	exeName := filepath.Base(os.Args[0])
-	debugPath := filepath.Join("C:\\ProgramData\\KeyAuth\\Debug", exeName)
+	debugPath := filepath.Join("C:\\ProgramData\\EpicAuth\\Debug", exeName)
 
 	if _, err := os.Stat(debugPath); os.IsNotExist(err) {
 		if err := os.MkdirAll(debugPath, 0755); err != nil {
