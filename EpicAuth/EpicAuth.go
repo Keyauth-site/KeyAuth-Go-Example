@@ -23,7 +23,7 @@ import (
 )
 
 var (
-	APIUrl           string = "https://EpicAuth.site/api/1.3/"
+	APIUrl           string = "https://EpicAuth.cc/api/1.3/"
 	NumUsers         string
 	NumOnlineUsers   string
 	NumKeys          string
